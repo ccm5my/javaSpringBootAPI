@@ -1,0 +1,9 @@
+/rest-service-complete.iml
+/README.adoc
+/idea
+/build
+/target
+/mvnw
+/mvnw.cmd
+.DS_Store
+.idea/

@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class GreetingController {
+public class BaseController {
 
 
 	private ISQLite sql;
 
-	public GreetingController() {
+	public BaseController() {
 		this.sql = new SQLite();
 	}
 

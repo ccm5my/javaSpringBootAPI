@@ -20,6 +20,6 @@ public class BaseController {
 
 		sql.testCanConnect();
 
-		System.out.println("Tested datbase connection");
-	}
+		System.out.println("Tested database connection");
+a	}
 }

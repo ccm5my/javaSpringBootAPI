@@ -12,6 +12,7 @@ public class SQLite implements ISQLite {
         Connection conn = null;
         Statement stmt = null;
         try {
+            
             // db parameters (assumes movies.db is in the same directory)
             String url = "jdbc:sqlite:movies.db";
             // create a connection to the database
@@ -21,7 +22,7 @@ public class SQLite implements ISQLite {
 
             // Ensure we can query the actors table
             stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM ACTORS LIMIT 1;");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM main.actors LIMIT 1;");
 
             while ( rs.next() ) {
 

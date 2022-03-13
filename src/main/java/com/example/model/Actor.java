@@ -7,6 +7,10 @@ public class Actor {
 	private int imdb_id;
 	private String name;
 
+	public Actor() {
+
+	}
+
 	public Actor(int id, int movie_id, int imdb_id, String name) {
 		this.id = id;
 		this.movie_id = movie_id;

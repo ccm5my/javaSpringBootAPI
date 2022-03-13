@@ -7,11 +7,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SQLite implements ISQLite {
 
     @Override
-    public Actor getActors() {
+    public List<Actor> getActors() {
         Connection conn = null;
         Statement stmt = null;
 
@@ -21,11 +23,14 @@ public class SQLite implements ISQLite {
             System.out.println("Connection to SQLite has been established.");
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM actors;");
+            List<Actor> actors = new ArrayList<>();
             while (rs.next()) {
-                System.out.println(rs.getInt("id") +  "\t" +
-                        rs.getInt("movie_id") + "\t" +
-                        rs.getString("imdb_id") + "\t" +
-                        rs.getString("name"));
+                Actor actor = new Actor();
+                actor.setId(rs.getInt("id"));
+                actor.setImdb_id(rs.getInt("imdb_id"));
+                actor.setMovie_id(rs.getInt("movie_id"));
+                actor.setName(rs.getString("name"));
+                actors.add(actor);
             }
             rs.close();
         } catch(Exception e) {

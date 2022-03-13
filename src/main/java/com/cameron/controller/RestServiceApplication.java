@@ -1,9 +1,9 @@
-package com.example.controller;
+package com.cameron.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages="com.example")
+@SpringBootApplication(scanBasePackages= "com.cameron")
 public class RestServiceApplication {
 
     public static void main(String[] args) {

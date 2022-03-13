@@ -1,9 +1,9 @@
-package com.example.controller;
+package com.cameron.controller;
 
-import com.example.interfaces.IActorService;
-import com.example.interfaces.IMovieService;
-import com.example.model.Actor;
-import com.example.model.Movie;
+import com.cameron.interfaces.IActorService;
+import com.cameron.interfaces.IMovieService;
+import com.cameron.model.Actor;
+import com.cameron.model.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

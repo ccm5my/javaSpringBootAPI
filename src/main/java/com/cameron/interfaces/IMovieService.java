@@ -1,6 +1,6 @@
-package com.example.interfaces;
+package com.cameron.interfaces;
 
-import com.example.model.Movie;
+import com.cameron.model.Movie;
 
 import java.util.List;
 

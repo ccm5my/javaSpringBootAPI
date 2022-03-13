@@ -1,13 +1,12 @@
-package com.example.database;
+package com.cameron.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
 
 public class ConnectionFactory {
 
     private static Connection conn = null;
-    
+
     static {
         try {
             String url = "jdbc:sqlite:movies.db";

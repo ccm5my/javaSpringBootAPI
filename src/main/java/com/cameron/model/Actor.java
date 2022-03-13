@@ -1,4 +1,4 @@
-package com.example.model;
+package com.cameron.model;
 
 public class Actor {
 

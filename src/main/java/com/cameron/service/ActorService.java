@@ -1,12 +1,11 @@
-package com.example.service;
+package com.cameron.service;
 
-import com.example.database.ConnectionFactory;
-import com.example.interfaces.IActorService;
-import com.example.model.Actor;
+import com.cameron.database.ConnectionFactory;
+import com.cameron.interfaces.IActorService;
+import com.cameron.model.Actor;
 import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;

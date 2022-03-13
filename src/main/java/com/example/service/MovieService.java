@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.database.ConnectionFactory;
 import com.example.interfaces.IMovieService;
 import com.example.model.Movie;
 import org.springframework.stereotype.Service;
@@ -16,13 +17,10 @@ public class MovieService implements IMovieService {
 
     @Override
     public List<Movie> getMovies() {
-        Connection conn;
         Statement stmt;
 
         try {
-            String url = "jdbc:sqlite:movies.db";
-            conn = DriverManager.getConnection(url);
-            System.out.println("Connection to SQLite has been established.");
+            Connection conn = ConnectionFactory.getConnection();
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM movies;");
             List<Movie> movies = new ArrayList<>();
@@ -36,9 +34,9 @@ public class MovieService implements IMovieService {
             }
             rs.close();
             return movies;
-        } catch(Exception e) {
+        } catch (Exception e) {
 
         }
-return null;
+        return null;
     }
 }

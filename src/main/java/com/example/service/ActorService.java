@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.interfaces.IActorService;
 import com.example.model.Actor;
+import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ActorService implements IActorService {
 
     @Override

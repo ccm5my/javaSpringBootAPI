@@ -23,13 +23,16 @@ import com.cameron.service.MovieService;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@RunWith(MockitoJUnitRunner.class)
 public class BaseControllerTest {
 
 	@Mock
@@ -38,19 +41,21 @@ public class BaseControllerTest {
 	@Mock
 	private IMovieService movieService;
 
-	BaseController controller = new BaseController(actorService, movieService);
-
-	@BeforeEach
-	void init_mocks() {
-		MockitoAnnotations.initMocks(this);
+	public BaseControllerTest() {
+		actorService = Mockito.mock(IActorService.class);
+		movieService = Mockito.mock(IMovieService.class);
 	}
 
 
 	@Test
 	public void testActorEndpoint() {
-		Mockito.when(actorService.getActors()).thenReturn(new ArrayList<Actor>());
+		BaseController controller = new BaseController(actorService, movieService);
+		List<Actor> actorList = new ArrayList<Actor>();
+		actorList.add(new Actor(1,2,3,"name"));
+		Mockito.when(actorService.getActors()).thenReturn(actorList);
 		List<Actor> rs = controller.getActors();
 		Assert.assertNotNull(rs);
+		Assert.assertTrue(rs.size()==1);
 	}
 
 

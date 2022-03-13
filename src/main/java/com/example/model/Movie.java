@@ -15,6 +15,10 @@ public class Movie {
     private int imdb_votes;
     private Number metacritic_score;
 
+    public Movie() {
+
+    }
+
     public Movie(int id, int imdb_id, String title, String director, int year, int rating, String genres, int runtime, String country, String language, int imdb_score, int imdb_votes, Number metacritic_score) {
         this.id = id;
         this.imdb_id = imdb_id;

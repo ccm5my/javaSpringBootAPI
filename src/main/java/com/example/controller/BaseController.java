@@ -1,8 +1,8 @@
 package com.example.controller;
 
-import com.example.interfaces.ISQLite;
+import com.example.interfaces.IActorService;
 import com.example.model.Actor;
-import com.example.service.SQLite;
+import com.example.service.ActorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,9 +11,9 @@ import java.util.List;
 @RestController
 public class BaseController {
 
-	private ISQLite sql;
+	private IActorService sql;
 	public BaseController() {
-		sql = new SQLite();
+		sql = new ActorService();
 	}
 
 	@GetMapping("/actors")

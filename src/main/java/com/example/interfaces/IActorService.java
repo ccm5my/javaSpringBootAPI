@@ -4,6 +4,6 @@ import com.example.model.Actor;
 
 import java.util.List;
 
-public interface ISQLite {
+public interface IActorService {
     List<Actor> getActors();
 }

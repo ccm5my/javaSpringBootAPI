@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.example.interfaces.ISQLite;
+import com.example.interfaces.IActorService;
 import com.example.model.Actor;
 
 import java.sql.Connection;
@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SQLite implements ISQLite {
+public class ActorService implements IActorService {
 
     @Override
     public List<Actor> getActors() {

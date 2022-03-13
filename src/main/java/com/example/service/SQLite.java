@@ -14,8 +14,8 @@ public class SQLite implements ISQLite {
 
     @Override
     public List<Actor> getActors() {
-        Connection conn = null;
-        Statement stmt = null;
+        Connection conn;
+        Statement stmt;
 
         try {
             String url = "jdbc:sqlite:movies.db";
@@ -33,6 +33,7 @@ public class SQLite implements ISQLite {
                 actors.add(actor);
             }
             rs.close();
+            return actors;
         } catch(Exception e) {
         }
         return null;

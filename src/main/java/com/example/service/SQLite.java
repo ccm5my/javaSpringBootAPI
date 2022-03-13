@@ -20,8 +20,13 @@ public class SQLite implements ISQLite {
             conn = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");
             stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM ACTORS LIMIT 1;");
-            rs.first();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM actors;");
+            while (rs.next()) {
+                System.out.println(rs.getInt("id") +  "\t" +
+                        rs.getInt("movie_id") + "\t" +
+                        rs.getString("imdb_id") + "\t" +
+                        rs.getString("name"));
+            }
             rs.close();
         } catch(Exception e) {
         }

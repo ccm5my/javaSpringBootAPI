@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.interfaces.ISQLite;
+import com.example.model.Actor;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +11,7 @@ import java.sql.Statement;
 public class SQLite implements ISQLite {
 
     @Override
-    public void connect() {
+    public Actor getActors() {
         Connection conn = null;
         Statement stmt = null;
 
@@ -20,8 +21,10 @@ public class SQLite implements ISQLite {
             System.out.println("Connection to SQLite has been established.");
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM ACTORS LIMIT 1;");
+            rs.first();
             rs.close();
         } catch(Exception e) {
         }
+        return null;
     }
 }

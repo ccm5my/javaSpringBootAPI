@@ -13,9 +13,9 @@ public class BaseController {
 		sql = new SQLite();
 	}
 
-	@GetMapping("/connect")
-	public void connect() {
-		sql.connect();
+	@GetMapping("/actors")
+	public void getActors() {
+		sql.getActors();
 		System.out.println("Tested database connection");
 	}
 }

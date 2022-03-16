@@ -18,21 +18,18 @@ package com.cameron.controller;
 import com.cameron.interfaces.IActorService;
 import com.cameron.interfaces.IMovieService;
 import com.cameron.model.Actor;
-import com.cameron.service.ActorService;
-import com.cameron.service.MovieService;
-import org.junit.Assert;
-import org.junit.jupiter.api.BeforeEach;
+import com.cameron.model.Movie;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RunWith(MockitoJUnitRunner.class)
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 public class BaseControllerTest {
 
 	@Mock
@@ -42,24 +39,48 @@ public class BaseControllerTest {
 	private IMovieService movieService;
 
 	public BaseControllerTest() {
-		actorService = Mockito.mock(IActorService.class);
-		movieService = Mockito.mock(IMovieService.class);
+		actorService = mock(IActorService.class);
+		movieService = mock(IMovieService.class);
 	}
 
 
 	@Test
 	public void testActorEndpoint() {
+		//Arrange
 		BaseController controller = new BaseController(actorService, movieService);
 		List<Actor> actorList = new ArrayList<Actor>();
-		actorList.add(new Actor(1,2,3,"name"));
-		Mockito.when(actorService.getActors()).thenReturn(actorList);
+		Actor newActor = new Actor(1,2,3,"name");
+		actorList.add(newActor);
+		when(actorService.getActors()).thenReturn(actorList);
+
+		//Act
 		List<Actor> rs = controller.getActors();
-		Assert.assertNotNull(rs);
-		Assert.assertTrue(rs.size()==1);
+
+		//Assert
+		assertNotNull(rs);
+		assertTrue(rs.size()==1);
+		assertTrue(rs.get(0).equals(newActor));
 	}
 
+	@Test
+	public void testMovieEndpoint() {
+		//Arrange
+		BaseController controller = new BaseController(actorService, movieService);
+		List<Movie> movieList = new ArrayList();
+		Movie movie = new Movie();
+		movie.setId(1);
+		movie.setTitle("title");
+		movieList.add(movie);
+		when(movieService.getMovies()).thenReturn(movieList);
 
+		//Act
+		List<Movie> rs = controller.getMovies();
 
+		//Assert
+		assertNotNull(rs);
+		assertTrue(rs.size()==1);
+		assertTrue(rs.get(0).equals(movieList.get(0)));
+	}
 
 
 }

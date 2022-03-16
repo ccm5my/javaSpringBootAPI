@@ -15,7 +15,7 @@ public class BaseController {
 
 	private IActorService actors;
 	private IMovieService movies;
-
+	
 	@Autowired
 	public BaseController(IActorService actors, IMovieService movies) {
 		this.actors = actors;
@@ -35,4 +35,6 @@ public class BaseController {
 		System.out.println("Grabbed movies");
 		return response;
 	}
+
+
 }

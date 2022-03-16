@@ -30,42 +30,19 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class ActorControllerTest {
-
-	@Mock
-	private IActorService actorService;
+public class MovieControllerTest {
 
 	@Mock
 	private IMovieService movieService;
 
-	public ActorControllerTest() {
-		actorService = mock(IActorService.class);
+	public MovieControllerTest() {
 		movieService = mock(IMovieService.class);
-	}
-
-
-	@Test
-	public void testActorEndpoint() {
-		//Arrange
-		ActorController controller = new ActorController(actorService, movieService);
-		List<Actor> actorList = new ArrayList<Actor>();
-		Actor newActor = new Actor(1,2,3,"name");
-		actorList.add(newActor);
-		when(actorService.getActors()).thenReturn(actorList);
-
-		//Act
-		List<Actor> rs = controller.getActors();
-
-		//Assert
-		assertNotNull(rs);
-		assertTrue(rs.size()==1);
-		assertTrue(rs.get(0).equals(newActor));
 	}
 
 	@Test
 	public void testMovieEndpoint() {
 		//Arrange
-		ActorController controller = new ActorController(actorService, movieService);
+		MovieController controller = new MovieController(movieService);
 		List<Movie> movieList = new ArrayList();
 		Movie movie = new Movie();
 		movie.setId(1);

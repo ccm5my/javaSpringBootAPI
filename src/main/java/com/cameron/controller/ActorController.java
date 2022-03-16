@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class BaseController {
+public class ActorController {
 
 	private IActorService actors;
 	private IMovieService movies;
 	
 	@Autowired
-	public BaseController(IActorService actors, IMovieService movies) {
+	public ActorController(IActorService actors) {
 		this.actors = actors;
-		this.movies = movies;
 	}
 
 	@GetMapping("/actors")
@@ -29,12 +28,6 @@ public class BaseController {
 		return response;
 	}
 
-	@GetMapping("/movies")
-	public List<Movie> getMovies() {
-		List<Movie> response = movies.getMovies();
-		System.out.println("Grabbed movies");
-		return response;
-	}
 
 
 }

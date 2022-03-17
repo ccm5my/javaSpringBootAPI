@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IMovieService {
     List<Movie> getMovies();
+
+    void addNewMovie(Movie movie);
 }

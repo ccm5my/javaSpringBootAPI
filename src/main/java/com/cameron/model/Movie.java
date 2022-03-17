@@ -2,7 +2,7 @@ package com.cameron.model;
 
 public class Movie {
     private int id;
-    private int imdb_id;
+    private String imdb_id;
     private String title;
     private String director;
     private int year;
@@ -19,7 +19,7 @@ public class Movie {
 
     }
 
-    public Movie(int id, int imdb_id, String title, String director, int year, int rating, String genres, int runtime, String country, String language, int imdb_score, int imdb_votes, Number metacritic_score) {
+    public Movie(int id, String imdb_id, String title, String director, int year, int rating, String genres, int runtime, String country, String language, int imdb_score, int imdb_votes, Number metacritic_score) {
         this.id = id;
         this.imdb_id = imdb_id;
         this.title = title;
@@ -43,11 +43,11 @@ public class Movie {
         this.id = id;
     }
 
-    public int getImdb_id() {
+    public String getImdb_id() {
         return imdb_id;
     }
 
-    public void setImdb_id(int imdb_id) {
+    public void setImdb_id(String imdb_id) {
         this.imdb_id = imdb_id;
     }
 

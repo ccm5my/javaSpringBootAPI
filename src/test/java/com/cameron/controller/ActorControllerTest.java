@@ -19,14 +19,14 @@ import com.cameron.interfaces.IActorService;
 import com.cameron.model.Actor;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.mockito.internal.verification.Times;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class ActorControllerTest {
 
@@ -39,7 +39,7 @@ public class ActorControllerTest {
 
 
     @Test
-    public void testActorEndpoint() {
+    public void testGetActorsEndpoint() {
         //Arrange
         ActorController controller = new ActorController(actorService);
         List<Actor> actorList = new ArrayList<Actor>();
@@ -54,5 +54,19 @@ public class ActorControllerTest {
         assertNotNull(rs);
         assertTrue(rs.size() == 1);
         assertTrue(rs.get(0).equals(newActor));
+    }
+
+    @Test
+    public void testAddActorsEndpoint() {
+        //Arrange
+        ActorController controller = new ActorController(actorService);
+        Actor actor = new Actor();
+        doNothing().when(actorService).addNewActor(actor);
+
+        //Act
+        controller.addNewActor(actor);
+
+        //Assert
+        verify(actorService, times(1)).addNewActor(actor);
     }
 }

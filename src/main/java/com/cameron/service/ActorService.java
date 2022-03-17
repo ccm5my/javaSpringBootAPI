@@ -14,7 +14,6 @@ import java.util.List;
 
 @Service
 public class ActorService implements IActorService {
-
     @Override
     public List<Actor> getActors() {
         Statement stmt;
@@ -50,6 +49,25 @@ public class ActorService implements IActorService {
             stmt.setInt(2, actor.getMovie_id());
             stmt.setString(3, actor.getImdb_id());
             stmt.setString(4, actor.getName());
+
+            stmt.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void updateNewActor(Actor actor) {
+        try {
+            String sql = "UPDATE actors SET movie_id=?, imdb_id=?, name=? where id = ?";
+            Connection conn = ConnectionFactory.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, actor.getMovie_id());
+            stmt.setString(2, actor.getImdb_id());
+            stmt.setString(3, actor.getName());
+            stmt.setInt(4, actor.getId());
+
 
             stmt.executeUpdate();
 

@@ -8,4 +8,6 @@ public interface IActorService {
     List<Actor> getActors();
 
     void addNewActor(Actor actor);
+
+    void updateNewActor(Actor actor);
 }

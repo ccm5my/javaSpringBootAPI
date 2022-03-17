@@ -3,12 +3,8 @@ package com.cameron.controller;
 import com.cameron.interfaces.IActorService;
 import com.cameron.interfaces.IMovieService;
 import com.cameron.model.Actor;
-import com.cameron.model.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,6 +30,12 @@ public class ActorController {
 	public void addNewActor(@RequestBody Actor actor) {
 		System.out.println("adding a new actor");
 		actors.addNewActor(actor);
+	}
+
+	@PutMapping("/actors/{id}")
+	public void updateActor(@PathVariable String id, @RequestBody Actor actor) {
+		System.out.println("id " + id);
+		actors.updateNewActor(actor);
 	}
 
 

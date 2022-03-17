@@ -26,15 +26,31 @@ public class ActorService implements IActorService {
             while (rs.next()) {
                 Actor actor = new Actor();
                 actor.setId(rs.getInt("id"));
-                actor.setImdb_id(rs.getInt("imdb_id"));
+                actor.setImdb_id(rs.getString("imdb_id"));
                 actor.setMovie_id(rs.getInt("movie_id"));
                 actor.setName(rs.getString("name"));
                 actors.add(actor);
             }
             rs.close();
             return actors;
-        } catch(Exception e) {
+        } catch (Exception e) {
         }
         return null;
+    }
+
+    @Override
+    public void addNewActor(Actor actor) {
+        Statement stmt;
+
+        try {
+            Connection conn = ConnectionFactory.getConnection();
+            stmt = conn.createStatement();
+
+            ResultSet rs = stmt.executeQuery("INSERT INTO actors (id, movie_id, imdb_id, name) VALUES(actor.getId(), actor.getMovie_id(), actor.getImdb_id(), actor.getName());");
+            rs.close();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

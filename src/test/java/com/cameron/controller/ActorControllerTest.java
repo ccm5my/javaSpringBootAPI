@@ -43,7 +43,7 @@ public class ActorControllerTest {
         //Arrange
         ActorController controller = new ActorController(actorService);
         List<Actor> actorList = new ArrayList<Actor>();
-        Actor newActor = new Actor(1, 2, 3, "name");
+        Actor newActor = new Actor(1, 2, "imdb", "name");
         actorList.add(newActor);
         when(actorService.getActors()).thenReturn(actorList);
 

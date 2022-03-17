@@ -6,6 +6,8 @@ import com.cameron.model.Actor;
 import com.cameron.model.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,6 +28,12 @@ public class ActorController {
 		List<Actor> response = actors.getActors();
 		System.out.println("getting actors");
 		return response;
+	}
+
+	@PostMapping("/actors")
+	public void addNewActor(@RequestBody Actor actor) {
+		actors.addNewActor(actor);
+		System.out.println("adding a new actor");
 	}
 
 

@@ -4,14 +4,14 @@ public class Actor {
 
 	private int id;
 	private int movie_id;
-	private int imdb_id;
+	private String imdb_id;
 	private String name;
 
 	public Actor() {
 
 	}
 
-	public Actor(int id, int movie_id, int imdb_id, String name) {
+	public Actor(int id, int movie_id, String imdb_id, String name) {
 		this.id = id;
 		this.movie_id = movie_id;
 		this.imdb_id = imdb_id;
@@ -34,11 +34,11 @@ public class Actor {
 		this.movie_id = movie_id;
 	}
 
-	public int getImdb_id() {
+	public String getImdb_id() {
 		return imdb_id;
 	}
 
-	public void setImdb_id(int imdb_id) {
+	public void setImdb_id(String imdb_id) {
 		this.imdb_id = imdb_id;
 	}
 

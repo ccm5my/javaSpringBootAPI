@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IActorService {
     List<Actor> getActors();
+
+    void addNewActor(Actor actor);
 }

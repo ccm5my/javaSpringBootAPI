@@ -32,8 +32,8 @@ public class ActorController {
 
 	@PostMapping("/actors")
 	public void addNewActor(@RequestBody Actor actor) {
-		actors.addNewActor(actor);
 		System.out.println("adding a new actor");
+		actors.addNewActor(actor);
 	}
 
 

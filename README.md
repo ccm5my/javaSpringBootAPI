@@ -1,1 +1,1 @@
-This is a basic spring boot rest service project
+To run this project, go to restServiceApplication file and click run.

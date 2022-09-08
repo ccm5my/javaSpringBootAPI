@@ -1,5 +1,5 @@
 To run this java Spring boot application, follow these steps.
 
-1. Run ''' mvn clean install '''
+1. Run ```mvn clean install ```
 
-2. Run ''' mvn spring-boot:run '''
+2. Run ``` mvn spring-boot:run ```

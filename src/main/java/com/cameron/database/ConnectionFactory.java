@@ -13,6 +13,7 @@ public class ConnectionFactory {
             conn = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");
         } catch (Exception e) {
+            System.out.println(e);
             System.out.println("Connection failed!");
         }
     }
